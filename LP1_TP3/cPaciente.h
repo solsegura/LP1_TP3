@@ -22,6 +22,7 @@ class cPaciente
 public:
 	cPaciente(string dni, string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo);
 	~cPaciente();
+	//necesitamos un metodo virtual PURO para que esta clase sea abstracta
 };
 
 
