@@ -5,10 +5,15 @@
 
 /* -------------EXPLICACION DE LO QUE HICE---------------
 Sory, me re cebe con estas funciones porque entre a googlear y no queria olvidarme de las cosas que vi
+
 Basicamente, fui siguiendo lo que pedia la consigna (ignorando los errores que saltan que no se resolver). 
-1: entra el paciente y es donante, facilongui: lo metemos a la lista de donantes y llamamos a Buscar receptores 
-que va a ver que personas necesitan los organos de este donante. ahi con el for vamos viendo los MATCH que se hace 
-entre los receptores y cada organo del donante y lo guardamos en aux_receptor.
+	1: entra el paciente y es donante, facilongui: lo metemos a la lista de donantes y llamamos a Buscar receptores 
+	que va a ver que personas necesitan los organos de este donante. ahi con el for vamos viendo los MATCH que se hace 
+	entre los receptores y cada organo del donante y lo guardamos en aux_receptor.
+
+	2: si es receptor nos queremos pegar un tiro porque hay que buscarle posibles donantes y para cada donante ver si 
+	le dan o no el organo haciendo lo mismo que en 1.
+
 
 */
 using namespace std;
@@ -49,6 +54,7 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 			if (aux == paciente_nuevo) {
 				//el receptor encontro donante :)
 				cPaciente* Match_donante = (*aux_donantes)[i]; //me guardo al match  (match_donante le va a dar a paciente nuevo el organo que necesita
+				//iniciar el protocolo ese 
 				break;
 			}
 		}
