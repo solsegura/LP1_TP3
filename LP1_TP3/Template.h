@@ -14,6 +14,8 @@ public:
 	void Eliminar(T* item);
 	T* Quitar(T* item);
 	int Buscar(T* item); //devuelve la posicion del item
+	int getCant();
+	T* operator[](int indice);
 };
 
 template<class T>
@@ -72,4 +74,16 @@ inline int cLista<T>::Buscar(T* item)
 	}
 	throw new exception("NO_SE_ENCUENTRA_EN_LA_LISTA");   //lanzamos una excepcion si no encuentra
 	return -1;  
+}
+
+template<class T>
+inline int cLista<T>::getCant()
+{
+	return this->Cant_act;
+}
+
+template<class T>
+inline T* cLista<T>::operator[](int indice)
+{
+	return this->Vector[indice];
 }

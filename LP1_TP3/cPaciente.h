@@ -7,7 +7,7 @@ using namespace std;
 enum sangre { Cero, A, B, AB };
 
 class cOrgano;
-class cListaOrganos;
+typedef cLista<cOrgano> cListaOrganos;
 
 class cPaciente
 {
@@ -22,6 +22,7 @@ class cPaciente
 public:
 	cPaciente(string dni, string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo);
 	~cPaciente();
+	virtual void popo(); //asi anda lo de ingresar paciente, se ve que necesita un virtual
 	//necesitamos un metodo virtual PURO para que esta clase sea abstracta
 };
 

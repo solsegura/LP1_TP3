@@ -11,6 +11,7 @@ enum estado { estable, inestable };
 class cReceptor :
     public cPaciente
 {
+    friend class cINCUCAI;
     tm EsperaDesde;
     int Prioridad;
     string Patologia;
