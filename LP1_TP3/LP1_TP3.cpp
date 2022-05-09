@@ -24,4 +24,5 @@ int main()
 
 	typedef cLista<cPaciente> cListaPacientes;  //dejo esto aca para entender que onda los templates en el main
 	cListaPacientes* Lista_Pacientes = new cListaPacientes(10);
+	//Lista_Pacientes->Buscar();
 }

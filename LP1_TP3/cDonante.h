@@ -10,7 +10,7 @@ class cDonante :
     cListaOrganos* lista_organos;
 
 public:
-    cDonante(tm fallecimiento, tm ablacion);
+    cDonante(tm fallecimiento, tm ablacion, string dni, string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo);
     ~cDonante();
 };
 
