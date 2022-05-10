@@ -1,6 +1,6 @@
 #include "cVehiculo.h"
 
-cVehiculo::cVehiculo(tipo vehiculo)
+cVehiculo::cVehiculo(string vehiculo)
 {
 	this->Vehiculo = vehiculo;
 }

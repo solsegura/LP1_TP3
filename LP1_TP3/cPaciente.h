@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <string.h>
+#include "Template.h"
 
 
 using namespace std;
@@ -21,8 +22,8 @@ class cPaciente
 
 public:
 	cPaciente(string dni, string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo);
-	~cPaciente();
-	virtual void popo(); //asi anda lo de ingresar paciente, se ve que necesita un virtual
+	virtual ~cPaciente();
+	virtual void AgregarOrgano(cOrgano* organo) = 0;
 	//necesitamos un metodo virtual PURO para que esta clase sea abstracta
 };
 

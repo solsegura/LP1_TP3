@@ -13,5 +13,6 @@ class cDonante :
 public:
     cDonante(tm fallecimiento, tm ablacion, string dni, string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo);
     ~cDonante();
+    void AgregarOrgano(cOrgano* organo);
 };
 

@@ -1,15 +1,14 @@
 #pragma once
-
+#include <string>
+#include <iostream>
 using namespace std;
-
-enum tipo{ambulancia, helicoptero, avion};
 
 class cVehiculo
 {
-	tipo Vehiculo;
+	string Vehiculo;
 public:
-	cVehiculo(tipo vehiculo);
-	~cVehiculo();
-	void RealizarTransporte();
+	cVehiculo(string vehiculo);
+	virtual ~cVehiculo();
+	virtual void RealizarTransporte()=0;
 };
 

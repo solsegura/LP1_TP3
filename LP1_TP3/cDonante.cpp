@@ -4,8 +4,14 @@ cDonante::cDonante(tm fallecimiento, tm ablacion, string dni, string nombre, str
 {
 	this->Fallecimiento = fallecimiento;
 	this->Ablacion = ablacion;
+	
 }
 
 cDonante::~cDonante()
 {
+}
+
+void cDonante::AgregarOrgano(cOrgano* organo)
+{
+	this->lista_organos->Agregar(organo);
 }

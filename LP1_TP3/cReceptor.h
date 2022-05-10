@@ -19,8 +19,9 @@ class cReceptor :
     cOrgano* Organo_que_necesita;
 
 public:
-    cReceptor(tm espera, int prioridad, string patologia, estado state, cOrgano* organo, string dni,
+    cReceptor(tm espera, int prioridad, string patologia, estado state, string dni,
     string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo);  //recordar hacer la parte de constructor de la clase base
     ~cReceptor();
+    void AgregarOrgano(cOrgano* organo);
 };
 

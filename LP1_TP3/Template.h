@@ -15,6 +15,8 @@ public:
 	T* Quitar(T* item);
 	int Buscar(T* item); //devuelve la posicion del item
 	int getCant();
+	void operator+(T* nuevo_item);
+	void operator-(T* item);
 	T* operator[](int indice);
 };
 
@@ -39,7 +41,7 @@ inline void cLista<T>::Agregar(T* nuevo_item)
 {
 	if (this->Cant_act < this->Tamanio) {
 		try {
-			if (this->Buscar(nuevo_item) == -1)
+			if (this->Buscar(nuevo_item) == -1)  //reviso que no este en la lista
 				this->Vector[(this->Cant_act)++] = nuevo_item;  //guardo el nuevo item e incremento la cant actual con postincremento
 		}
 		catch (...) {}; //buscar lanza exception si no encuentra, pero no queremos imprimirla en este caso
@@ -80,6 +82,18 @@ template<class T>
 inline int cLista<T>::getCant()
 {
 	return this->Cant_act;
+}
+
+template<class T>
+inline void cLista<T>::operator+(T* nuevo_item)
+{
+	this->Agregar(nuevo_item);
+}
+
+template<class T>
+inline void cLista<T>::operator-(T* item)
+{
+	this->Eliminar(item);
 }
 
 template<class T>
