@@ -1,6 +1,6 @@
 #include "cReceptor.h"
 
-cReceptor::cReceptor(tm espera, int prioridad, string patologia, estado state, string dni, string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo):cPaciente(dni, nombre, fecha, sexo, telefono, rh, gruposanguineo)//falta hacer la parte de llamar al constructor de paciente
+cReceptor::cReceptor(tm espera, int prioridad, string patologia, estado state, string dni, string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo, cCentroDeSalud* centro, int dia_nacimiento, int mes_nac, int anio_nac):cPaciente(dni, nombre, sexo, telefono, rh, gruposanguineo, centro,dia_nacimiento,mes_nac,anio_nac)
 {
 	this->EsperaDesde = espera;
 	this->Prioridad = prioridad;

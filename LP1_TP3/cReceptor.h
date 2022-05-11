@@ -20,7 +20,7 @@ class cReceptor :
 
 public:
     cReceptor(tm espera, int prioridad, string patologia, estado state, string dni,
-    string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo);  //recordar hacer la parte de constructor de la clase base
+    string nombre, string fecha, bool sexo, string telefono, bool rh, sangre gruposanguineo, cCentroDeSalud* centro, int dia_nacimiento, int mes_nac, int anio_nac);  //recordar hacer la parte de constructor de la clase base
     ~cReceptor();
     void AgregarOrgano(cOrgano* organo);
 };

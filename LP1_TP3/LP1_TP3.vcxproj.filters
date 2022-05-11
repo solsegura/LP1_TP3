@@ -48,6 +48,9 @@
     <ClCompile Include="cAvion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cFecha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cINCUCAI.h">
@@ -81,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cAvion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFecha.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

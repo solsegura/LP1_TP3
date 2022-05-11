@@ -32,8 +32,8 @@ public:
 	void IngresarPaciente(cPaciente* paciente_nuevo);
 	cListaReceptores* BuscarReceptores(cListaOrganos* organos);
 	cListaDonantes* BuscarDonantes(cOrgano* organo);
-	cPaciente* ElegirReceptor(cListaReceptores* sublista, cOrgano* organo_a_donar); //elige de la sublista de receptores, uno para un organo en particular del donante
-	void IniciarProtocolo();
+	cReceptor* ElegirReceptor(cListaReceptores* sublista, cOrgano* organo_a_donar); //elige de la sublista de receptores, uno para un organo en particular del donante
+	void IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano* organo);
 	int CantDonaciones();
 };
 

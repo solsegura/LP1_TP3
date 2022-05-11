@@ -1,6 +1,7 @@
 #include "cINCUCAI.h"
 #include "cDonante.h"
 #include "cReceptor.h"
+#include "cCentroDeSalud.h"
 #define MAXDONANTES 40
 #define MAXRECEPTORES 40
 
@@ -38,8 +39,13 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 		//Luego busca los posibles receptores y devuelve una lista de posibles receptores segun los organos del donante
 		cListaReceptores* sublista = this->BuscarReceptores(donante_aux->lista_organos);  //mismo problema de como aclararle que es donante
 		for (int i = 0; i < donante_aux->lista_organos->getCant(); i++) {
-			cPaciente* aux_Receptor = this->ElegirReceptor(sublista, (*(donante_aux->lista_organos))[i]);  //para cada organo que puede donar, busca un receptor
-			cout << "el receptor (aux receptor) va a recibir el organo (paciente_nuevo->listaorganos[i]" << endl; //dejo esto aca para que se lea mas claro la onda del match
+			cReceptor* aux_Receptor = this->ElegirReceptor(sublista, (*(donante_aux->lista_organos))[i]);  //para cada organo que puede donar, busca un receptor
+			if (aux_Receptor != NULL) {
+				//hubo un match
+				cout << "el receptor (aux receptor) va a recibir el organo (paciente_nuevo->listaorganos[i]" << endl; //dejo esto aca para que se lea mas claro la onda del match
+				this->IniciarProtocolo(aux_Receptor, donante_aux, (*(donante_aux->lista_organos))[i]); //inicio el protocolo para transportar cada organo del donante con su match
+			}
+			
 			//recordar sacar al receptor este de la lista de receptores una vez que se haga el transplante  
 			//si no es NULL iniciar el protocolo de no se que concha
 		}
@@ -52,14 +58,21 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 
 		for (int i = 0; i < aux_donantes->getCant(); i++) {
 			cListaReceptores* sublista = this->BuscarReceptores((*aux_donantes)[i]->lista_organos);  // por cada donante veo si hay match
-			cPaciente* aux = this->ElegirReceptor(sublista, receptor_aux->Organo_que_necesita);  //si para el organo que necesita, hay match, aux va a ser el receptor que ingreso
+			cReceptor* aux = this->ElegirReceptor(sublista, receptor_aux->Organo_que_necesita);  //si para el organo que necesita, hay match, aux va a ser el receptor que ingreso
 			if (aux == receptor_aux) {
 				//el receptor encontro donante :)
-				cPaciente* Match_donante = (*aux_donantes)[i]; //me guardo al match  (match_donante le va a dar a paciente nuevo el organo que necesita
-				//iniciar el protocolo ese 
+				cDonante* Match_donante = (*aux_donantes)[i]; //me guardo al match  (match_donante le va a dar a paciente nuevo el organo que necesita
+				this->IniciarProtocolo(receptor_aux, Match_donante, receptor_aux->Organo_que_necesita); //iniciar el protocolo ese 
+				
 				break;
 			}
 		}
 	
 	}
+}
+
+void cINCUCAI::IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano* organo)
+{
+	cCentroDeSalud* aux_centro = donante->getCentro();
+	aux_centro->AsignarVehiculo(receptor, donante, organo);
 }

@@ -8,8 +8,8 @@ class cOrgano
 	string Organo;
 	tm FechaAblacion;
 public:
-	cOrgano(string organo, tm fechaablacion);
+	cOrgano(string organo);
 	~cOrgano();
-
+	void setFechaAblacion();
 };
 
