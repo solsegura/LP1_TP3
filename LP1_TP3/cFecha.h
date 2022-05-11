@@ -1,5 +1,9 @@
 #pragma once
 #include <time.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 class cFecha
 {
@@ -17,15 +21,10 @@ public:
 
 	~cFecha();
 
-#pragma endregion
 
-#pragma region Metodos
+	//Calcula el numero de horas entre dos fechas
+	static int HorasEntreFechas(cFecha* inicio, cFecha* fin);
 
-	//Calcula el numero de días entre dos fechas
-	static int DiasEntreFechas(cFecha* inicio, cFecha* fin);
-
-	//Devuelve si las fechas se superponen
-	static bool IsOverlapped(cFecha* inicio1, cFecha* fin1, cFecha* inicio2, cFecha* fin2);
 
 	//Cambia la fecha a la fecha actual
 	void SetHoy();
@@ -39,15 +38,6 @@ public:
 	// Imprime fecha
 	void ImprimirFecha();
 
-	// Determina si el vuelo se encuentra atrasado o no
-	static bool EstaAtrasado(cFecha* fecha1, cFecha* fecha2);
-
-	// Determina si las dos fechas tiene el mismo dia
-	static bool MismoDia(cFecha* fecha1, cFecha* fecha2);
-
-#pragma endregion
-
-#pragma region Sobrecarga de Operadores
 
 	bool operator<(cFecha& otra) {
 		time_t aux_this = mktime(&(this->fecha));
@@ -71,6 +61,6 @@ public:
 		return !(*this == otra);
 	}
 
-#pragma endregion
+
 };
 
