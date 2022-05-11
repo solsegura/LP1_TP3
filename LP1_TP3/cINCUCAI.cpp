@@ -74,5 +74,5 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 void cINCUCAI::IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano* organo)
 {
 	cCentroDeSalud* aux_centro = donante->getCentro();
-	aux_centro->AsignarVehiculo(receptor, donante, organo);
+	aux_centro->AsignarVehiculo(receptor, organo);
 }
