@@ -7,6 +7,6 @@ class cAmbulancia :
 public:
     cAmbulancia(string patente, string nombre);
     ~cAmbulancia();
-    void RealizarTransporte();
+    void RealizarTransporte(cReceptor* receptor, cOrgano* organo);
 };
 

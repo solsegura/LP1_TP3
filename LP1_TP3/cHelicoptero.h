@@ -8,6 +8,6 @@ class cHelicoptero :
 public:
     cHelicoptero(string id, string nombre);
     ~cHelicoptero();
-    void RealizarTransporte();
+    void RealizarTransporte(cReceptor* receptor, cOrgano* organo);
 };
 

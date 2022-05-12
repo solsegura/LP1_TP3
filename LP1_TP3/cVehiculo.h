@@ -3,12 +3,14 @@
 #include <iostream>
 using namespace std;
 
+class cReceptor;
+
 class cVehiculo
 {
 	string Vehiculo;
 public:
 	cVehiculo(string vehiculo);
 	virtual ~cVehiculo();
-	virtual void RealizarTransporte()=0;
+	virtual void RealizarTransporte(cReceptor* receptor)=0;
 };
 

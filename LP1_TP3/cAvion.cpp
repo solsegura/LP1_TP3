@@ -1,4 +1,6 @@
 #include "cAvion.h"
+#include "cReceptor.h"
+#include "cCentroDeSalud.h"
 
 using namespace std;
 
@@ -11,9 +13,10 @@ cAvion::~cAvion()
 {
 }
 
-void cAvion::RealizarTransporte()
+void cAvion::RealizarTransporte(cReceptor* receptor, cOrgano* organo)
 {
-	cout << "zhooooooom" << endl << "El avión llegó a destino" << endl;
+	cout << "Zhooooooom" << endl << "El avión llegó a destino." << endl;
+	receptor->getCentro()->RealizarTransplante(organo);
 }
 
 

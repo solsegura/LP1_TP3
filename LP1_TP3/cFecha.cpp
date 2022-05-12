@@ -70,7 +70,10 @@ int cFecha::HorasEntreFechas(cFecha* inicio, cFecha* fin)
 void cFecha::SetHoy()
 {
 	time_t now = time(0);
-	tm* aux = localtime(&now); //obtengo fecha actual
+	tm* aux = localtime(&now); //obtengo fecha y hora actual
+	fecha.tm_sec = aux->tm_sec;
+	fecha.tm_min = aux->tm_min;
+	fecha.tm_hour = aux->tm_hour;
 	fecha.tm_mday = aux->tm_mday;
 	fecha.tm_mon = aux->tm_mon;
 	fecha.tm_year = aux->tm_year;
@@ -78,7 +81,7 @@ void cFecha::SetHoy()
 
 bool cFecha::FechaCompleta()
 {
-	if (fecha.tm_year != 0 && fecha.tm_mon != 0 && fecha.tm_mday != 0) //verifico que los parámetros de día no estén en sus valores nulos
+	if (fecha.tm_year != 0 && fecha.tm_mon != 0 && fecha.tm_mday != 0 && fecha.tm_hour>=0 && fecha.tm_min>=0 && fecha.tm_sec>=0) //verifico que los parámetros de día no estén en sus valores nulos
 		return true;
 	return false;
 }

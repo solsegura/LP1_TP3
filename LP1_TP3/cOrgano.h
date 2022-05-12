@@ -6,10 +6,11 @@ using namespace std;
 class cOrgano
 {
 	string Organo;
-	tm FechaAblacion;
+	cFecha* FechaAblacion;
 public:
 	cOrgano(string organo);
 	~cOrgano();
+	cFecha* getFechaAblacion();
 	void setFechaAblacion();
 };
 

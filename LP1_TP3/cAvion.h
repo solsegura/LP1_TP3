@@ -11,6 +11,6 @@ class cAvion :
 public: 
     cAvion(string id, string nombre);
     ~cAvion();
-    void RealizarTransporte();
+    void RealizarTransporte(cReceptor* receptor, cOrgano* organo);
 };
 

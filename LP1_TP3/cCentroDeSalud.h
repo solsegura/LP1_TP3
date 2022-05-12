@@ -27,9 +27,9 @@ class cCentroDeSalud
 public:
 	cCentroDeSalud(string nombre, string direccion, string partido, string telefono, provincia provincia, cListaVehiculo* vehiculos, cListaPacientes* pacientes);
 	~cCentroDeSalud();
-	void AsignarVehiculo(cReceptor* receptor, cOrgano* organo);
-	void RealizarAblacion();
-	void RealizarTransplante();
+	void AsignarVehiculo(cReceptor* receptor, cOrgano* organo, cDonante* donante);
+	void RealizarAblacion(cDonante* donante, cOrgano* organo);
+	void RealizarTransplante(cOrgano* organo);
 
 
 };

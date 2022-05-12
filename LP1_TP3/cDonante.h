@@ -6,6 +6,7 @@ class cDonante :
     public cPaciente
 {
     friend class cINCUCAI;
+    friend class cCentroDeSalud;
     tm Fallecimiento;
     tm Ablacion;
     cListaOrganos* lista_organos;  //hacerla en el constructor
