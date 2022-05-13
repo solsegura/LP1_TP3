@@ -15,5 +15,10 @@ cHelicoptero::~cHelicoptero()
 void cHelicoptero::RealizarTransporte(cReceptor* receptor, cOrgano* organo)
 {
 	cout << "taca-taca-taca" << endl << "El helicóptero llegó a destino" << endl;
-	receptor->getCentro()->RealizarTransplante(organo);
+	try {
+		receptor->getCentro()->RealizarTransplante(organo);
+	}
+	catch (exception* e) {
+		e->what();
+	}
 }

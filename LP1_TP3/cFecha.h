@@ -61,6 +61,7 @@ public:
 		return !(*this == otra);
 	}
 
+	tm getFecha();
 
 };
 

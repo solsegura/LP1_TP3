@@ -14,5 +14,10 @@ cAmbulancia::~cAmbulancia()
 void cAmbulancia::RealizarTransporte(cReceptor* receptor, cOrgano* organo)
 {
 	cout << "iuiuiuiuiu" << endl << "La ambulancia llegó a destino" << endl;
-	receptor->getCentro()->RealizarTransplante(organo);
+	try {
+		receptor->getCentro()->RealizarTransplante(organo);
+	}
+	catch (exception* e) {
+		e->what();
+	}
 }

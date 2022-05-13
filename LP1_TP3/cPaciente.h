@@ -3,9 +3,9 @@
 #include <string.h>
 #include "Template.h"
 
-
+// prioridad ddada por un enum (urgente, meh, muy urgente, puede esperar, tira pa rato)
 using namespace std;
-enum sangre { Cero, A, B, AB };
+enum sangre { O, A, B, AB };
 
 class cOrgano;
 class cCentroDeSalud;

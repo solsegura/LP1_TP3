@@ -1,6 +1,8 @@
 #include "cAvion.h"
 #include "cReceptor.h"
 #include "cCentroDeSalud.h"
+#include "cFecha.h"
+
 
 using namespace std;
 
@@ -16,7 +18,12 @@ cAvion::~cAvion()
 void cAvion::RealizarTransporte(cReceptor* receptor, cOrgano* organo)
 {
 	cout << "Zhooooooom" << endl << "El avión llegó a destino." << endl;
-	receptor->getCentro()->RealizarTransplante(organo);
+	try {
+		receptor->getCentro()->RealizarTransplante(organo);
+	}
+	catch (exception* e) {
+		e->what();
+	}
 }
 
 

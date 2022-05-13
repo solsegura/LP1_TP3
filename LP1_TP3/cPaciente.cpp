@@ -18,3 +18,8 @@ cPaciente::~cPaciente()
 {
 	delete this->Fecha;
 }
+
+cCentroDeSalud* cPaciente::getCentro()
+{
+	return this->Centro;
+}

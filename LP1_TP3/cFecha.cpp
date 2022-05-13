@@ -97,3 +97,8 @@ void cFecha::ImprimirFecha() {
 	cout << To_string() << endl;;
 }
 
+tm cFecha::getFecha()
+{
+	return this->fecha;
+}
+

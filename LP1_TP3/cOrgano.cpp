@@ -13,7 +13,17 @@ cOrgano::~cOrgano()
 	delete FechaAblacion;
 }
 
+cFecha* cOrgano::getFechaAblacion()
+{
+	return this->FechaAblacion;
+}
+
 void cOrgano::setFechaAblacion()
 {
 	this->FechaAblacion->SetHoy();
+}
+
+string cOrgano::getNombreOrgano()
+{
+	return this->Organo;
 }

@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
 #include "Template.h"
+#define MAXPACIENTES 20
+#define MAXVEHICULOS 5
+
 
 using namespace std;
 

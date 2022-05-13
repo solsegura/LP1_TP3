@@ -12,5 +12,6 @@ public:
 	~cOrgano();
 	cFecha* getFechaAblacion();
 	void setFechaAblacion();
+	string getNombreOrgano();
 };
 
