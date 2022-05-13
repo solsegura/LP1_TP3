@@ -29,6 +29,12 @@ cINCUCAI::cINCUCAI(string nombre)
 
 }
 
+cINCUCAI::~cINCUCAI()
+{
+	delete this->Lista_donantes;
+	delete this->Lista_receptores;
+}
+
 void cINCUCAI::RecibirPaciente(cPaciente* paciente_nuevo)
 {
 	cout << "Bienvenido a INCUCAI. En un instante lo ingresaremos al sistema." << endl;
@@ -95,8 +101,9 @@ cReceptor* cINCUCAI::ElegirReceptor(cListaReceptores* sublista, cOrgano* organo_
 	//deberia recorrer los receptores y de los que tengan el mismo organo fijarme cual es el que tiene mayor prioridad
 	for (int i = 0; i < sublista->getCant(); i++)
 	{
-		if ((*sublista)[i]->Organo_que_necesita == organo_a_donar)
+		if ((*sublista)[i]->Organo_que_necesita == organo_a_donar) //prioridad enum
 		{
+
 			
 		}
 	}

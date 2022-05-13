@@ -21,7 +21,53 @@ int main()
 	 
 	 Te dejo un sapo de regalo, lav u
 	*/
+    /*
 
+
+          |  \ \ | |/ /
+          |  |\ `' ' /
+          |  ;'      \      / ,
+          | ;    _,   |    / / ,
+          | |   (  `-.;_,-' '-' ,
+          | `,   `-._       _,-'_
+          |,-`.    `.)    ,<_,-'_,
+         ,'    `.   /   ,'  `;-' _,
+        ;        `./   /`,    \-'
+        |         /   |  ;\   |\
+        |        ;_,._|_,  `, ' \
+        |        \    \ `       `,
+        `      __ `    \         ;,
+         \   ,'  `      \,        ;
+          \_(            ;,      ;;
+          |  \           `;,     ;;
+          |  |`.          `;;,   ;'
+          |  |  `-.        ;;;;,;'
+          |  |    |`-.._  ,;;;;;'
+          |  |    |   | ``';;;'
+
+*/
+    printf("      |  \ \ | |/ /\n");
+   printf("       |  |\ `' ' /             \n");
+   printf("       |  ;'      \      / ,    \n");
+   printf("       | ;    _,   |    / / ,   \n");
+   printf("       | |   (  `-.;_,-' '-' ,  \n");
+   printf("       | `,   `-._       _,-'_  \n");
+   printf("       |,-`.    `.)    ,<_,-'_, \n");
+   printf("      ,'    `.   /   ,'  `;-' _,\n");
+   printf("     ;        `./   /`,    \-'  \n");
+   printf("     |         /   |  ;\   |\   \n");
+   printf("     |        ;_,._|_,  `, ' \  \n");
+   printf("     |        \    \ `       `, \n");
+   printf("     `      __ `    \         ;,\n");
+   printf("      \   ,'  `      \,        ;\n");
+   printf("       \_(            ;,      ;;\n");
+   printf("       |  \           `;,     ;;\n");
+   printf("       |  |`.          `;;,   ;'\n");
+   printf("       |  |  `-.        ;;;;,;' \n");
+   printf("       |  |    |`-.._  ,;;;;;'  \n");
+   printf("       |  |    |   | ``';;;'    \n");
+   printf("                                \n");
+    
 	typedef cLista<cPaciente> cListaPacientes;  //dejo esto aca para entender que onda los templates en el main
 	cListaPacientes* Lista_Pacientes = new cListaPacientes(10);
 	//Lista_Pacientes->Buscar();
