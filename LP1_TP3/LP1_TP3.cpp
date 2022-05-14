@@ -48,7 +48,7 @@ int main()
 */
    printf("       |  \\ \\ | |/ /\n");
    printf("       |  |\\ `' ' /             \n");
-   printf("       |  ;'      \\      / ,    \n");
+   printf("       |  ;'      \\     / ,    \n");
    printf("       | ;    _,   |    / / ,   \n");
    printf("       | |   (  `-.;_,-' '-' ,  \n");
    printf("       | `,   `-._       _,-'_  \n");

@@ -83,9 +83,9 @@ void cCentroDeSalud::RealizarTransplante(cOrgano* organo)
 		cout << "Se pudo realizar el transplante porque el organo llego a destino en menos de 20 hs" << endl;
 		bool exito = rand() % (2); //da 0 o 1  
 		if (exito)
-			cout << "Transplante EXITOSOOOOOO wena capo, disfruta tu " << organo->getNombreOrgano() << endl;
+			cout << "Transplante EXITOSO! Disfruta tu " << organo->getNombreOrgano() << "."<<endl;
 		else
-			cout << "El transplante no fue exitoso :( se murio tu amigo " << endl;
+			cout << "Transplante no exitoso :(  " << endl;
 	}
 	else
 		throw new exception("PASARON_MAS_DE_20_HORAS"); //catch cada vez que lo llamamos

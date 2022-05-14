@@ -8,7 +8,7 @@ using namespace std;
 
 
 enum estado { estable, inestable };
-enum prioridad{muy_grave, grave, leve, muy_leve};
+enum prioridad{muy_leve, leve, grave, muy_grave};
 
 class cReceptor :
     public cPaciente
