@@ -74,7 +74,7 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 				cDonante* Match_donante = (*aux_donantes)[i]; //me guardo al match  (match_donante le va a dar a paciente nuevo el organo que necesita
 				this->IniciarProtocolo(receptor_aux, Match_donante, receptor_aux->Organo_que_necesita); //iniciar el protocolo ese 
 
-				break;
+				break; //deberia haber un else de este if ¿, como que este en una lista de espera o algo asi
 			}
 		}
 
@@ -92,6 +92,17 @@ cListaReceptores* cINCUCAI::BuscarReceptores(cListaOrganos* organos) //recibe li
 			if ((*(this->Lista_receptores))[i]->Organo_que_necesita == (*organos)[j]) //si es el mismo organo lo agrego a la lista
 				sublista->Agregar((*(this->Lista_receptores))[i]);
 		}
+	}
+	return sublista;
+}
+
+cListaDonantes* cINCUCAI::BuscarDonantes(cOrgano* organo)//wtf y la prioridad?????????
+{//devuelve lista de donante que tienen ese organo
+	cListaDonantes* sublista = new cListaDonantes(MAXDONANTES);
+	for (int i = 0; i <this->Lista_donantes->getCant() ; i++)
+	{
+		if ((*(this->Lista_donantes))[i]->lista_organos[i] == organo) //nose
+			sublista->Agregar((*(this->Lista_donantes))[i]);
 	}
 	return sublista;
 }
