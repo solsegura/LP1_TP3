@@ -56,8 +56,8 @@ public:
 	~cINCUCAI();
 	void RecibirPaciente(cPaciente* paciente_nuevo);
 	void IngresarPaciente(cPaciente* paciente_nuevo);
-	cListaReceptores* BuscarReceptores(cListaOrganos* organos);
-	cListaDonantes* BuscarDonantes(cOrgano* organo);
+	cListaReceptores* BuscarReceptores(cListaOrganos* organos, sangre Sanrge);
+	cListaDonantes* BuscarDonantes(cOrgano* organo, sangre Sanrge);
 	cReceptor* ElegirReceptor(cListaReceptores* sublista, cOrgano* organo_a_donar); //elige de la sublista de receptores, uno para un organo en particular del donante
 	void IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano* organo);
 	int CantDonaciones();

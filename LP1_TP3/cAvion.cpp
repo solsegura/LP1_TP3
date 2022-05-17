@@ -22,7 +22,9 @@ void cAvion::RealizarTransporte(cReceptor* receptor, cOrgano* organo)
 		receptor->getCentro()->RealizarTransplante(organo);
 	}
 	catch (exception* e) {
-		e->what();
+		receptor->setPrioridad(muy_grave); //cambiamos la prioridad porque el transplante no fue 
+		receptor->setEstado(inestable); //cambiamos el estado
+		cout<<string(e->what())<<endl;
 	}
 }
 

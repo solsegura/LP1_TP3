@@ -72,21 +72,21 @@ void cCentroDeSalud::RealizarAblacion(cDonante* donante, cOrgano* organo)
 
 }
 
-void cCentroDeSalud::RealizarTransplante(cOrgano* organo) 
+void cCentroDeSalud::RealizarTransplante(cOrgano* organo)
 {
 	cFecha* fecha_transplante = new cFecha();
 	fecha_transplante = organo->getFechaAblacion();
 	fecha_transplante->getFecha().tm_hour + rand() % (24) + 1; //sumamos un numero de horas entre 1 y 24 a la fecha de ablacion para definir la fecha de transplante
-	int CantHoras= cFecha::HorasEntreFechas(organo->getFechaAblacion(), fecha_transplante);
+	int CantHoras = cFecha::HorasEntreFechas(organo->getFechaAblacion(), fecha_transplante);
 
 	if (CantHoras < 20) {
 		cout << "Se pudo realizar el transplante porque el organo llego a destino en menos de 20 hs" << endl;
 		bool exito = rand() % (2); //da 0 o 1  
 		if (exito)
-			cout << "Transplante EXITOSO! Disfruta tu " << organo->getNombreOrgano() << "."<<endl;
+			cout << "Transplante EXITOSO! Disfruta tu " << organo->getNombreOrgano() << "." << endl;
 		else
-			cout << "Transplante no exitoso :(  " << endl;
+			throw new exception("Transplante no exitoso :(");
 	}
 	else
-		throw new exception("PASARON_MAS_DE_20_HORAS"); //catch cada vez que lo llamamos
+		throw new exception("PASARON_MAS_DE_20_HORAS");
 }

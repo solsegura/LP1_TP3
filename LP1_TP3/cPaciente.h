@@ -5,7 +5,7 @@
 
 // prioridad ddada por un enum (urgente, meh, muy urgente, puede esperar, tira pa rato)
 using namespace std;
-enum sangre { O, A, B, AB };
+enum sangre { OP, AP, BP, ABP, ON, AN, BN, ABN};
 
 class cOrgano;
 class cCentroDeSalud;
@@ -14,21 +14,22 @@ typedef cLista<cOrgano> cListaOrganos;
 
 class cPaciente
 {
+	friend class cINCUCAI;
 	string DNI;
 	string Nombre;
 	cFecha* Fecha; //ver si usar tipo de dato time
 	bool Sexo;
 	string Telefono;
-	bool RH;
 	sangre GrupoSanguineo;
 	cCentroDeSalud* Centro;
 
 public:
-	cPaciente(string dni, string nombre, bool sexo, string telefono, bool rh, sangre gruposanguineo, cCentroDeSalud* centro, int dia_nacimiento, int mes_nac, int anio_nac);
+	cPaciente(string dni, string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, int dia_nacimiento, int mes_nac, int anio_nac);
 	virtual ~cPaciente();
 	virtual void AgregarOrgano(cOrgano* organo) = 0;
 	cCentroDeSalud* getCentro();
-	//necesitamos un metodo virtual PURO para que esta clase sea abstracta
+	sangre getSangre();
+	
 };
 
 
