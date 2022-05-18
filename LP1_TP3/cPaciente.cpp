@@ -27,3 +27,8 @@ sangre cPaciente::getSangre()
 {
 	return this->GrupoSanguineo;
 }
+
+string cPaciente::getNombre()
+{
+	return this->Nombre;
+}

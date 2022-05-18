@@ -1,5 +1,7 @@
 #include"Template.h"
 #include"cPaciente.h"
+#include "cINCUCAI.h"
+#include "cOrgano.h"
 #include <iostream>
 
 int main()
@@ -20,32 +22,9 @@ int main()
       )_/ /|\   /|\ \_(
 	 
 	 Te dejo un sapo de regalo, lav u
-	*/
-    /*
-
-
-          |  \ \ | |/ /
-          |  |\ `' ' /
-          |  ;'      \      / ,
-          | ;    _,   |    / / ,
-          | |   (  `-.;_,-' '-' ,
-          | `,   `-._       _,-'_
-          |,-`.    `.)    ,<_,-'_,
-         ,'    `.   /   ,'  `;-' _,
-        ;        `./   /`,    \-'
-        |         /   |  ;\   |\
-        |        ;_,._|_,  `, ' \
-        |        \    \ `       `,
-        `      __ `    \         ;,
-         \   ,'  `      \,        ;
-          \_(            ;,      ;;
-          |  \           `;,     ;;
-          |  |`.          `;;,   ;'
-          |  |  `-.        ;;;;,;'
-          |  |    |`-.._  ,;;;;;'
-          |  |    |   | ``';;;'
-
 */
+
+
    printf("       |  \\ \\ | |/ /\n");
    printf("       |  |\\ `' ' /             \n");
    printf("       |  ;'      \\     / ,    \n");
@@ -68,7 +47,16 @@ int main()
    printf("       |  |    |   | ``';;;'    \n");
    printf("                                \n");
     
+   cINCUCAI* incucai = new cINCUCAI("incucai");
 	typedef cLista<cPaciente> cListaPacientes;  //dejo esto aca para entender que onda los templates en el main
 	cListaPacientes* Lista_Pacientes = new cListaPacientes(10);
 	//Lista_Pacientes->Buscar();
+	cOrgano* corazao = new cOrgano("corazon");
+
+	try {
+		incucai->FiltroReceptoresPorOrgano(corazao);
+	}
+	catch (exception e) {
+		cout << string(e.what()) << endl;
+		}
 }

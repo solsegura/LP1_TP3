@@ -1,6 +1,8 @@
 #pragma once
 #include <time.h>
 #include "cPaciente.h"
+#include "cReceptor.h"
+
 
 class cDonante :
     public cPaciente
@@ -16,5 +18,6 @@ public:
     ~cDonante();
     void AgregarOrgano(cOrgano* organo);
 
+    bool operator== (cReceptor& receptor);
 };
 

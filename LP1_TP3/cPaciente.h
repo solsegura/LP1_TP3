@@ -29,6 +29,7 @@ public:
 	virtual void AgregarOrgano(cOrgano* organo) = 0;
 	cCentroDeSalud* getCentro();
 	sangre getSangre();
+	string getNombre();
 	
 };
 

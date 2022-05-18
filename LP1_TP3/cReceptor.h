@@ -27,6 +27,6 @@ public:
     void setPrioridad(prioridad Prioridadd);
     void setEstado(estado Estadoo);
     void AgregarOrgano(cOrgano* organo);
-    string to_String();
+    cOrgano* getOrgano();
 };
 

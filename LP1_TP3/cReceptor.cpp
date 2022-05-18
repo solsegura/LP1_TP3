@@ -14,6 +14,16 @@ cReceptor::~cReceptor()
 {
 }
 
+void cReceptor::setPrioridad(prioridad Prioridadd)
+{
+	this->Prioridad = Prioridadd;
+}
+
+void cReceptor::setEstado(estado Estadoo)
+{
+	this->Estado = Estadoo;
+}
+
 void cReceptor::AgregarOrgano(cOrgano* organo)
 {
 	this->Organo_que_necesita = organo;

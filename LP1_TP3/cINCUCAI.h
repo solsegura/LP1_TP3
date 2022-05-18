@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <string.h>
+#include <sstream>
 #include "Template.h"
 
 using namespace std;
@@ -17,32 +18,6 @@ typedef cLista<cDonante> cListaDonantes;
 typedef cLista<cReceptor> cListaReceptores;
 typedef cLista<cOrgano> cListaOrganos;
 
-/*
-
-
-          |  \ \ | |/ /
-          |  |\ `' ' /
-          |  ;'      \      / , 
-          | ;    _,   |    / / ,  
-          | |   (  `-.;_,-' '-' ,
-          | `,   `-._       _,-'_
-          |,-`.    `.)    ,<_,-'_, 
-         ,'    `.   /   ,'  `;-' _,  
-        ;        `./   /`,    \-'
-        |         /   |  ;\   |\
-        |        ;_,._|_,  `, ' \
-        |        \    \ `       `,
-        `      __ `    \         ;,
-         \   ,'  `      \,        ;
-          \_(            ;,      ;;
-          |  \           `;,     ;;
-          |  |`.          `;;,   ;'
-          |  |  `-.        ;;;;,;'
-          |  |    |`-.._  ,;;;;;'
-          |  |    |   | ``';;;'  
-                  
-*/
-
 
 
 class cINCUCAI
@@ -56,10 +31,17 @@ public:
 	~cINCUCAI();
 	void RecibirPaciente(cPaciente* paciente_nuevo);
 	void IngresarPaciente(cPaciente* paciente_nuevo);
-	cListaReceptores* BuscarReceptores(cListaOrganos* organos, sangre Sanrge);
-	cListaDonantes* BuscarDonantes(cOrgano* organo, sangre Sanrge);
+	cListaReceptores* BuscarReceptores(cDonante* donante);
+	cListaDonantes* BuscarDonantes(cReceptor* receptor);
 	cReceptor* ElegirReceptor(cListaReceptores* sublista, cOrgano* organo_a_donar); //elige de la sublista de receptores, uno para un organo en particular del donante
 	void IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano* organo);
-	int CantDonaciones();
+	//sint CantDonaciones();
+
+	cListaReceptores* FiltroReceptoresPorOrgano(cOrgano* organo);
+	cListaReceptores* FiltroPorCentro(cCentroDeSalud* centro);
+	void InformarPrioridad(cReceptor* receptor);
+
+	string to_String();
+	friend ostream& operator<<(ostream& out, cINCUCAI& incu);
 };
 

@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -18,6 +20,7 @@ public:
 	void operator+(T* nuevo_item);
 	void operator-(T* item);
 	T* operator[](int indice);
+	
 };
 
 template<class T>

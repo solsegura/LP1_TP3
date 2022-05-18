@@ -1,6 +1,7 @@
 #include "cINCUCAI.h"
 #include "cDonante.h"
 #include "cReceptor.h"
+#include "cOrgano.h"
 #include "cCentroDeSalud.h"
 #define MAXDONANTES 40
 #define MAXRECEPTORES 40
@@ -84,27 +85,24 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 		;
 }
 
-cListaReceptores* cINCUCAI::BuscarReceptores(cListaOrganos* organos, sangre Sanrge) //recibe lista de organos del donante y la sangre y devuelve los que nec esos organos // y son comp
+cListaReceptores* cINCUCAI::BuscarReceptores(cDonante* donante) //recibe lista de organos del donante y la sangre y devuelve los que nec esos organos // y son comp
 {
 	cListaReceptores* sublista = new cListaReceptores(MAXRECEPTORES);
-	for (int j = 0; j < organos->getCant(); j++) {
-		for (int i = 0; i < this->Lista_receptores->getCant(); i++) {
-			if ((*(this->Lista_receptores))[i]->Organo_que_necesita == (*organos)[j]) //si es el mismo organo lo agrego a la lista
-				if((*(this->Lista_receptores))[i]->getSangre() == Sanrge) //si la sangre es la misma se agrega a la lista
-				sublista->Agregar((*(this->Lista_receptores))[i]);
-		}
+	for (int i = 0; i < this->Lista_receptores->getCant(); i++) {
+		if(*donante == *((*(this->Lista_receptores))[i]))
+			sublista->Agregar((*(this->Lista_receptores))[i]);
 	}
+	
 	return sublista;
 }
 
-cListaDonantes* cINCUCAI::BuscarDonantes(cOrgano* organo, sangre Sanrge)
+cListaDonantes* cINCUCAI::BuscarDonantes(cReceptor* receptor)
 {//devuelve lista de donante que tienen ese organo
 	cListaDonantes* sublista = new cListaDonantes(MAXDONANTES);
 	for (int i = 0; i <this->Lista_donantes->getCant() ; i++)
 	{
-		if ((*((*(this->Lista_donantes))[i]->lista_organos))[i] == organo)
-			if ((*(this->Lista_donantes))[i]->getSangre() == Sanrge) //si la sangre es la misma se agrega a la lista
-				sublista->Agregar((*(this->Lista_donantes))[i]);
+		if (*(*(this->Lista_donantes))[i] == *receptor) //si la sangre es la misma se agrega a la lista
+			sublista->Agregar((*(this->Lista_donantes))[i]);
 	}
 	return sublista;
 }
@@ -145,4 +143,74 @@ void cINCUCAI::IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano*
 {
 	cCentroDeSalud* aux_centro = donante->getCentro();
 	aux_centro->AsignarVehiculo(receptor, organo, donante);
+}
+
+cListaReceptores* cINCUCAI::FiltroReceptoresPorOrgano(cOrgano* organo)
+{
+	cListaReceptores* aux= new cListaReceptores(MAXRECEPTORES);
+	for (int i = 0; i < this->Lista_receptores->getCant(); i++) {
+		if (organo = (*(this->Lista_receptores))[i]->Organo_que_necesita)
+			aux->Agregar((*(this->Lista_receptores))[i]);
+	}
+	if (aux->getCant() == 0)
+		throw new exception("No hay pacientes que necesiten este organo");
+	return aux;
+}
+
+cListaReceptores* cINCUCAI::FiltroPorCentro(cCentroDeSalud* centro)
+{
+	cListaReceptores* aux = new cListaReceptores(MAXRECEPTORES);
+	for (int i = 0; i < this->Lista_receptores->getCant(); i++) {
+		if (centro = (*(this->Lista_receptores))[i]->getCentro())
+			aux->Agregar((*(this->Lista_receptores))[i]);
+	}
+	if (aux->getCant() == 0)
+		throw new exception("No hay pacientes en ese centro de salud");
+	return aux;
+	
+}
+
+void cINCUCAI::InformarPrioridad(cReceptor* receptor)
+{
+	for (int i = 0; i < this->Lista_receptores->getCant(); i++) {
+		if ((*(this->Lista_receptores))[i] == receptor) {
+			cout << receptor->getNombre() <<" se encuentra numero " << to_string(i) << " en la lista de espera y tiene prioridad ";
+			switch (receptor->Prioridad) {
+			case muy_leve: cout << "muy leve" << endl;
+			case leve: cout << "leve " << endl;
+			case grave: cout << "grave " << endl;
+			case muy_grave: cout << "muy grave " << endl;
+			}
+		}
+	}
+}
+
+string cINCUCAI::to_String()
+{
+	stringstream ss;
+	ss << "-----INCUCAI--------" << endl << endl;
+	ss << "_____DONANTES______" << endl;
+	for (int i = 0; i < this->Lista_donantes->getCant(); i++) {
+		ss << "Nombre: " << (*(this->Lista_donantes))[i]->getNombre() << endl;
+		ss << "Dona: ";
+		for (int k = 0; k < (*(this->Lista_donantes))[i]->lista_organos->getCant(); k++) {
+			ss << (*((*(this->Lista_donantes))[i]->lista_organos))[k]->getNombreOrgano() << ", ";
+		}
+		ss << endl;
+	}
+	ss << endl;
+	ss << "_____RECEPTORES_____" << endl;
+	for (int i = 0; i < this->Lista_receptores->getCant(); i++) {
+			ss << "Nombre: " << (*(this->Lista_receptores))[i]->getNombre() << endl;
+			ss << "Recibe: " << (*(this->Lista_receptores))[i]->Organo_que_necesita->getNombreOrgano();
+			ss << endl;
+	}
+
+	return ss.str();
+}
+
+ostream& operator<<(ostream& out, cINCUCAI& incu)
+{
+	out << incu.to_String();
+	return out;
 }
