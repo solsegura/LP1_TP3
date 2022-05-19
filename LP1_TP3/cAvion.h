@@ -1,5 +1,7 @@
 #pragma once
 #include "cVehiculo.h"
+#include "cOrgano.h"
+#include "cReceptor.h"
 
 using namespace std;
 

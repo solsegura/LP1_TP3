@@ -24,6 +24,7 @@ class cPaciente
 	cCentroDeSalud* Centro;
 
 public:
+	cPaciente(); //por defecto
 	cPaciente(string dni, string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, int dia_nacimiento, int mes_nac, int anio_nac);
 	virtual ~cPaciente();
 	virtual void AgregarOrgano(cOrgano* organo) = 0;

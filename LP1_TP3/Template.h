@@ -1,12 +1,13 @@
 #pragma once
 #include <string>
 #include <sstream>
+#include <iostream>
 
 using namespace std;
 
 template <class T>
 class cLista {
-	T* Vector;
+	T** Vector;
 	int Tamanio;
 	int Cant_act;
 public:
@@ -28,7 +29,7 @@ inline cLista<T>::cLista(int tam)
 {
 	this->Tamanio = tam;
 	this->Cant_act = 0;
-	this->Vector = new T[this->Tamanio];
+	this->Vector = new T*[this->Tamanio];
 	for (int i = 0; i < this->Tamanio; i++)
 		this->Vector[i] = NULL;
 }
@@ -36,6 +37,8 @@ inline cLista<T>::cLista(int tam)
 template<class T>
 inline cLista<T>::~cLista()
 {
+	for (int i = 0; i < this->Tamanio; i++)
+		this->Vector[i] = NULL;
 	delete [] this->Vector;
 }
 
@@ -46,10 +49,14 @@ inline void cLista<T>::Agregar(T* nuevo_item)
 		try {
 			if (this->Buscar(nuevo_item) == -1)  //reviso que no este en la lista
 				this->Vector[(this->Cant_act)++] = nuevo_item;  //guardo el nuevo item e incremento la cant actual con postincremento
+			else
+				throw new exception("Ya se encontraba en la lista");
 		}
-		catch (...) {}; //buscar lanza exception si no encuentra, pero no queremos imprimirla en este caso
-		else
-			throw new exception("Ya se encontraba en la lista");
+		catch (exception e) {
+			if (e.what() == "Ya se encontraba en la lista")
+				cout << string(e.what()) << endl;
+		}; //buscar lanza exception si no encuentra, pero no queremos imprimirla en este caso. Solo imprimimos si ya estaba en la lista
+		
 	}
 	else
 		throw new exception("No hay mas lugar en la lista");

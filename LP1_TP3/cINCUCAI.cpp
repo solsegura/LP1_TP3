@@ -50,7 +50,7 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 		//es donante
 		this->Lista_donantes->Agregar(donante_aux);
 		//Luego busca los posibles receptores y devuelve una lista de posibles receptores segun los organos del donante
-		cListaReceptores* sublista = this->BuscarReceptores(donante_aux->lista_organos, donante_aux->getSangre());  //devielve ista de los que necesitan el organo
+		cListaReceptores* sublista = this->BuscarReceptores(donante_aux);  //devielve ista de los que necesitan el organo
 		for (int i = 0; i < donante_aux->lista_organos->getCant(); i++) {
 			cReceptor* aux_Receptor = this->ElegirReceptor(sublista, (*(donante_aux->lista_organos))[i]);  //para cada organo que puede donar, busca un receptor
 			if (aux_Receptor != NULL) {
@@ -65,10 +65,10 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 	}
 	else if (receptor_aux != NULL) {
 		this->Lista_receptores->Agregar(receptor_aux);  //es un receptor, lo agrego a la lista de receptores
-		cListaDonantes* aux_donantes = this->BuscarDonantes(receptor_aux->Organo_que_necesita, receptor_aux->getSangre()); //devuelve una lista con los donantes que pueden donar el organo que necesita este receptor
+		cListaDonantes* aux_donantes = this->BuscarDonantes(receptor_aux); //devuelve una lista con los donantes que pueden donar el organo que necesita este receptor
 
 		for (int i = 0; i < aux_donantes->getCant(); i++) {
-			cListaReceptores* sublista = this->BuscarReceptores((*aux_donantes)[i]->lista_organos, donante_aux->getSangre());  // por cada donante veo si hay match
+			cListaReceptores* sublista = this->BuscarReceptores(donante_aux);  // por cada donante veo si hay match
 			cReceptor* aux = this->ElegirReceptor(sublista, receptor_aux->Organo_que_necesita);  //si para el organo que necesita, hay match, aux va a ser el receptor que ingreso
 			if (aux == receptor_aux) {
 				//el receptor encontro donante :)

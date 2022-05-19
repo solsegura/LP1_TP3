@@ -2,7 +2,15 @@
 #include"cPaciente.h"
 #include "cINCUCAI.h"
 #include "cOrgano.h"
-#include <iostream>
+#include "cVehiculo.h"
+#include "cFecha.h"
+#include "cReceptor.h"
+#include "cDonante.h"
+#include "cAmbulancia.h"
+#include "cAvion.h"
+#include "cHelicoptero.h"
+#include "cCentroDeSalud.h"
+
 
 int main()
 {
@@ -22,6 +30,26 @@ int main()
       )_/ /|\   /|\ \_(
 	 
 	 Te dejo un sapo de regalo, lav u
+
+
+
+	 ----------------HOLA FIO----------------------------
+	 Resolvi casi todos los problemas para que el codigo pueda correr, me parece que el unico que queda es un problema con la 
+	 sobrecarga del ==, chequeate eso (sino no se que es).
+
+	 Para el main, crear objetos de todos los tipos. una vez que hiciste a los donantes y receptores, cada uno tiene que agregar los 
+	 organos con su metodo agregar organo. una vez que esta eso, ingresan al incucai y ahi se hace todo automaticamente. despues imprimir incucai y listo creo.
+
+	 Algo que se puede cambiar si tenemos la voluntad es que la fecha del donante en vez de ser de tipo tm sea cFecha, estaria buenisimo pero hay 
+	 que cambiarlo tambien en el constructor y eso.
+
+	 Si piensan algo de ContarDonaciones mandenle, EXITOOOSS. A mi lo que se me ocurre es hacerla en cCentroDeSalud que tiene toda la info pero bueno... de ahi a hacerla.
+
+
+
+
+
+
 */
 
 

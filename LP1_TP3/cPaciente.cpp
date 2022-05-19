@@ -1,6 +1,18 @@
 #include "cPaciente.h"
 #include "cFecha.h"
 
+cPaciente::cPaciente()
+{
+	this->DNI = "0";
+	this->Nombre = "0";
+	this->Fecha = new cFecha();
+	this->Sexo = false;
+	this->Telefono = "0";
+	this->GrupoSanguineo = ABN;
+	this->Centro = NULL;
+
+}
+
 cPaciente::cPaciente(string dni, string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, int dia_nacimiento, int mes_nac, int anio_nac)
 {
 	this->DNI = dni;

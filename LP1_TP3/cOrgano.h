@@ -3,6 +3,8 @@
 #include <time.h>
 using namespace std;
 
+class cFecha;
+
 class cOrgano
 {
 	string Organo;

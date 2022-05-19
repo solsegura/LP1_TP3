@@ -12,6 +12,7 @@ class cReceptor;
 class cDonante;
 class cOrgano;
 class cPaciente;
+class cCentroDeSalud;
 
 typedef cLista<cPaciente> cListaPacientes;
 typedef cLista<cDonante> cListaDonantes;

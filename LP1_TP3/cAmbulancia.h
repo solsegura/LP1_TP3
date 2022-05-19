@@ -1,5 +1,8 @@
 #pragma once
 #include "cVehiculo.h"
+#include "cOrgano.h"
+#include "cReceptor.h"
+
 class cAmbulancia :
     public cVehiculo
 {
