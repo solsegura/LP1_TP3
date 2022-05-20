@@ -13,7 +13,7 @@ class cLista {
 public:
 	cLista(int tam);
 	~cLista();
-	void Agregar(T* nuevo_item);  //tiene throw, recordar hacer catch
+	void Agregar(T* nuevo_item);  
 	void Eliminar(T* item);
 	T* Quitar(T* item);
 	int Buscar(T* item); //devuelve la posicion del item

@@ -24,7 +24,7 @@ void cAvion::RealizarTransporte(cReceptor* receptor, cOrgano* organo, cINCUCAI* 
 		cINCUCAI::TransplanteHecho(receptor, incu);
 	}
 	catch (exception* e) {
-		receptor->setPrioridad(muy_grave); //cambiamos la prioridad porque el transplante no fue 
+		receptor->setPrioridad(muy_grave); //cambiamos la prioridad porque el transplante no fue exitoso
 		receptor->setEstado(inestable); //cambiamos el estado
 		cout<<string(e->what())<<endl<<endl;
 	}

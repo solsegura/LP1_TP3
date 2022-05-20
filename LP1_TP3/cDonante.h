@@ -11,10 +11,9 @@ class cDonante :
     friend class cINCUCAI;
     friend class cCentroDeSalud;
     cFecha* Fallecimiento;
-    cListaOrganos* lista_organos;  //hacerla en el constructor
+    cListaOrganos* lista_organos;  
 
 public:
-    //cDonante(); //defecto
     cDonante(cFecha* fallecimiento, string dni, string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, cFecha* nacimiento);
     ~cDonante();
     void AgregarOrgano(cOrgano* organo);

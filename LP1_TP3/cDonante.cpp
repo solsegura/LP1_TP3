@@ -16,7 +16,6 @@ cDonante::cDonante(cFecha* fallecimiento, string dni, string nombre, bool sexo, 
 
 cDonante::~cDonante()
 {
-	delete lista_organos;
 }
 
 void cDonante::AgregarOrgano(cOrgano* organo)

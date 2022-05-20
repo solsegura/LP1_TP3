@@ -26,8 +26,8 @@ class cCentroDeSalud
 	string Partido;
 	string Telefono;
 	provincia Provincia;
-	cListaVehiculo* Lista_vehiculos;  // template ndea
-	cListaPacientes* Lista_pacientes;  //idem, ver como es lo de template
+	cListaVehiculo* Lista_vehiculos;  
+	cListaPacientes* Lista_pacientes; 
 public:
 	cCentroDeSalud(string nombre, string direccion, string partido, string telefono, provincia provincia, cListaVehiculo* vehiculos);
 	~cCentroDeSalud();

@@ -22,7 +22,7 @@ class cReceptor :
 
 public:
     cReceptor(prioridad Prioridadd, string patologia, estado state, string dni,
-    string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, cFecha* nacimiento);  //recordar hacer la parte de constructor de la clase base
+    string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, cFecha* nacimiento); 
     ~cReceptor();
     void setPrioridad(prioridad Prioridadd);
     void setEstado(estado Estadoo);

@@ -7,19 +7,6 @@
 #define MAXDONANTES 40
 #define MAXRECEPTORES 40
 
-/* -------------EXPLICACION DE LO QUE HICE---------------
-Sory, me re cebe con estas funciones porque entre a googlear y no queria olvidarme de las cosas que vi
-
-Basicamente, fui siguiendo lo que pedia la consigna (ignorando los errores que saltan que no se resolver). 
-	1: entra el paciente y es donante, facilongui: lo metemos a la lista de donantes y llamamos a Buscar receptores 
-	que va a ver que personas necesitan los organos de este donante. ahi con el for vamos viendo los MATCH que se hace 
-	entre los receptores y cada organo del donante y lo guardamos en aux_receptor.
-
-	2: si es receptor nos queremos pegar un tiro porque hay que buscarle posibles donantes y para cada donante ver si 
-	le dan o no el organo haciendo lo mismo que en 1.
-
-
-*/
 using namespace std;
 
 
@@ -33,8 +20,6 @@ cINCUCAI::cINCUCAI(string nombre)
 
 cINCUCAI::~cINCUCAI()
 {
-	delete this->Lista_donantes;
-	delete this->Lista_receptores;
 }
 
 void cINCUCAI::RecibirPaciente(cPaciente* paciente_nuevo)
@@ -59,9 +44,6 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 				cout << "el receptor (aux receptor) va a recibir el organo (paciente_nuevo->listaorganos[i]" << endl; //dejo esto aca para que se lea mas claro la onda del match
 				this->IniciarProtocolo(aux_Receptor, donante_aux, (*(donante_aux->lista_organos))[i]); //inicio el protocolo para transportar cada organo del donante con su match
 			}
-
-			//recordar sacar al receptor este de la lista de receptores una vez que se haga el transplante  
-			//si no es NULL iniciar el protocolo de no se que concha
 		}
 	}
 	else if (receptor_aux != NULL) {
@@ -155,10 +137,6 @@ void cINCUCAI::IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano*
 	
 }
 
-//void cINCUCAI::SetDonantes(cListaDonantes* donantes)
-//{
-//	this->Lista_donantes = donantes;
-//}
 
 int cINCUCAI::getCantReceptores()
 {

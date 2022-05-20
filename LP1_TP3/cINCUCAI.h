@@ -28,7 +28,7 @@ class cINCUCAI
 	cListaReceptores* Lista_receptores;
 
 public:
-	cINCUCAI(string nombre);  //ver el optimo del 2 a ver que hacen con las listas
+	cINCUCAI(string nombre);  
 	~cINCUCAI();
 	void RecibirPaciente(cPaciente* paciente_nuevo);
 	void IngresarPaciente(cPaciente* paciente_nuevo);
@@ -36,15 +36,8 @@ public:
 	cListaDonantes* BuscarDonantes(cReceptor* receptor);
 	cReceptor* ElegirReceptor(cListaReceptores* sublista, cOrgano* organo_a_donar); //elige de la sublista de receptores, uno para un organo en particular del donante
 	void IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano* organo);
-	//sint CantDonaciones();
-
-	//void SetDonantes(cListaDonantes* donantes);
-	//void setReceptores(cListaReceptores* receptores);
-
 	int getCantReceptores();
 	int getCantDonantes();
-
-
 	cListaReceptores* FiltroReceptoresPorOrgano(cOrgano* organo);
 	cListaReceptores* FiltroPorCentro(cCentroDeSalud* centro);
 	void InformarPrioridad(cReceptor* receptor);

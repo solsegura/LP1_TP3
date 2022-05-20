@@ -25,8 +25,6 @@ cCentroDeSalud::cCentroDeSalud(string nombre, string direccion, string partido, 
 
 cCentroDeSalud::~cCentroDeSalud()
 {
-	delete this->Lista_pacientes;
-	delete this->Lista_vehiculos;
 }
 
 void cCentroDeSalud::AgregarPaciente(cPaciente* paciente_nuevo)

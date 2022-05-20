@@ -10,7 +10,6 @@ cOrgano::cOrgano(string organo)
 
 cOrgano::~cOrgano()
 {
-	delete FechaAblacion;
 }
 
 cFecha* cOrgano::getFechaAblacion()

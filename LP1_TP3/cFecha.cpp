@@ -11,10 +11,9 @@ cFecha::cFecha(bool next_mes) {
 	fecha.tm_mday = 0;
 	fecha.tm_mon = 0;
 	fecha.tm_year = 0;
-	if (next_mes) {
-
-	}
-		//setr rand
+	//if (next_mes) {
+	// ibamos a hacer lo del mes pero al final fue opcional y no lo hicimos
+	//}//setr rand
 	SetHoy();
 
 	fecha.tm_wday = 0;

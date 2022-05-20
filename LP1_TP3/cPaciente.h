@@ -17,7 +17,7 @@ class cPaciente
 	friend class cINCUCAI;
 	string DNI;
 	string Nombre;
-	cFecha* Fecha; //ver si usar tipo de dato time
+	cFecha* Fecha; 
 	bool Sexo;
 	string Telefono;
 	sangre GrupoSanguineo;
@@ -31,7 +31,6 @@ public:
 	cCentroDeSalud* getCentro();
 	sangre getSangre();
 	string getNombre();
-	//string To_string();
 	
 };
 

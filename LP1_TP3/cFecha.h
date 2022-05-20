@@ -7,36 +7,20 @@ using namespace std;
 
 class cFecha
 {
-
 	tm fecha;
 
 public:
-	//Constructor por default, inicia en la fecha de hoy
-	cFecha(bool next_mes = false);
-
-	//Constructor inicia en dia, mes, año
-	cFecha(int d, int m, int a);
-
+	
+	cFecha(bool next_mes = false);//Constructor por default, inicia en la fecha de hoy
+	cFecha(int d, int m, int a);//Constructor inicia en dia, mes, año
 	cFecha(int dia, int mes, int anio, int hora, int minutos);
-
 	~cFecha();
-
-
-	//Calcula el numero de horas entre dos fechas
-	static int HorasEntreFechas(cFecha* inicio,time_t aux_fin);
-
-
-	//Cambia la fecha a la fecha actual
-	void SetHoy();
+	static int HorasEntreFechas(cFecha* inicio,time_t aux_fin);//Calcula el numero de horas entre dos fechas
+	void SetHoy();//Cambia la fecha a la fecha actual
 	void setMesRand();
-	//Verifica que la fecha esté completa
-	bool FechaCompleta();
-
-	//Devuelve la fecha actual en forma de string
-	string To_string();
-
-	// Imprime fecha
-	void ImprimirFecha();
+	bool FechaCompleta();//Verifica que la fecha esté completa
+	string To_string();//Devuelve la fecha actual en forma de string
+	void ImprimirFecha();// Imprime fecha
 
 
 	bool operator<(cFecha& otra) {

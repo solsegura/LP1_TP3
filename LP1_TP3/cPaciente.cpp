@@ -27,7 +27,6 @@ cPaciente::cPaciente(string dni, string nombre, bool sexo, string telefono, sang
 
 cPaciente::~cPaciente()
 {
-	delete this->Fecha;
 }
 
 cCentroDeSalud* cPaciente::getCentro()
