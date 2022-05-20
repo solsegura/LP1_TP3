@@ -7,6 +7,7 @@
 #include "cAvion.h"
 #include "cFecha.h"
 #include "cHelicoptero.h"
+#include "cINCUCAI.h"
 
 
 cCentroDeSalud::cCentroDeSalud(string nombre, string direccion, string partido, string telefono, provincia provincia, cListaVehiculo* vehiculos)
@@ -33,7 +34,7 @@ void cCentroDeSalud::AgregarPaciente(cPaciente* paciente_nuevo)
 	this->Lista_pacientes->Agregar(paciente_nuevo);
 }
 
-void cCentroDeSalud::AsignarVehiculo(cReceptor* receptor, cOrgano* organo, cDonante* donante)
+void cCentroDeSalud::AsignarVehiculo(cReceptor* receptor, cOrgano* organo, cDonante* donante, cINCUCAI* incu)
 {
 	int i = 0;
 	if (receptor->getCentro()->Provincia == this->Provincia) {
@@ -42,7 +43,7 @@ void cCentroDeSalud::AsignarVehiculo(cReceptor* receptor, cOrgano* organo, cDona
 			for (i; i < this->Lista_vehiculos->getCant(); i++) {
 				cAmbulancia* ambulancia = dynamic_cast<cAmbulancia*>((*(this->Lista_vehiculos))[i]); //si nohay ambulancias exc
 				if (ambulancia != NULL) {
-					ambulancia->RealizarTransporte(receptor, organo); //se encontro una ambulancia para hacer el traslado en el mismo partido
+					ambulancia->RealizarTransporte(receptor, organo, incu); //se encontro una ambulancia para hacer el traslado en el mismo partido
 					break; //cierro el bucle porque ya tengo una ambulancia
 				}
 			}
@@ -56,7 +57,7 @@ void cCentroDeSalud::AsignarVehiculo(cReceptor* receptor, cOrgano* organo, cDona
 			for (k; k < this->Lista_vehiculos->getCant(); k++) {
 				cHelicoptero* helicoptero = dynamic_cast<cHelicoptero*>((*(this->Lista_vehiculos))[k]); //si nohay ambulancias exc
 				if (helicoptero != NULL) {
-					helicoptero->RealizarTransporte(receptor, organo); //se encontro una ambulancia para hacer el traslado en el mismo partido
+					helicoptero->RealizarTransporte(receptor, organo, incu); //se encontro una ambulancia para hacer el traslado en el mismo partido
 					break; //cierro el bucle porque ya tengo una ambulancia
 				}
 			}
@@ -71,7 +72,7 @@ void cCentroDeSalud::AsignarVehiculo(cReceptor* receptor, cOrgano* organo, cDona
 		for (j; j < this->Lista_vehiculos->getCant(); j++) {
 			cAvion* avion = dynamic_cast<cAvion*>((*(this->Lista_vehiculos))[j]); //si nohay ambulancias exc
 			if (avion != NULL) {
-				avion->RealizarTransporte(receptor, organo); //se encontro una ambulancia para hacer el traslado en el mismo partido
+				avion->RealizarTransporte(receptor, organo, incu); //se encontro una ambulancia para hacer el traslado en el mismo partido
 				break; //cierro el bucle porque ya tengo una ambulancia
 			}
 		}

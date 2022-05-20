@@ -2,6 +2,7 @@
 #include "cReceptor.h"
 #include "cCentroDeSalud.h"
 #include "cFecha.h"
+#include "cINCUCAI.h"
 
 
 using namespace std;
@@ -15,11 +16,12 @@ cAvion::~cAvion()
 {
 }
 
-void cAvion::RealizarTransporte(cReceptor* receptor, cOrgano* organo)
+void cAvion::RealizarTransporte(cReceptor* receptor, cOrgano* organo, cINCUCAI* incu)
 {
 	cout << "Zhooooooom" << endl << "El avion llego a destino." << endl<<endl;
 	try {
 		receptor->getCentro()->RealizarTransplante(organo);
+		cINCUCAI::TransplanteHecho(receptor, incu);
 	}
 	catch (exception* e) {
 		receptor->setPrioridad(muy_grave); //cambiamos la prioridad porque el transplante no fue 

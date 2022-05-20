@@ -4,7 +4,7 @@
 #include "cReceptor.h"
 
 using namespace std;
-
+class cINCUCAI;
 
 class cAvion :
     public cVehiculo
@@ -13,6 +13,6 @@ class cAvion :
 public: 
     cAvion(string id, string nombre);
     ~cAvion();
-    void RealizarTransporte(cReceptor* receptor, cOrgano* organo);
+    void RealizarTransporte(cReceptor* receptor, cOrgano* organo, cINCUCAI* incu);
 };
 

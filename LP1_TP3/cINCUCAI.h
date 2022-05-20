@@ -51,5 +51,7 @@ public:
 
 	string to_String();
 	friend ostream& operator<<(ostream& out, cINCUCAI& incu);
+
+	static void TransplanteHecho(cReceptor* receptor, cINCUCAI* incu);
 };
 

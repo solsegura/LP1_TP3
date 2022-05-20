@@ -147,7 +147,7 @@ void cINCUCAI::IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano*
 {
 	cCentroDeSalud* aux_centro = donante->getCentro();
 	try {
-		aux_centro->AsignarVehiculo(receptor, organo, donante);
+		aux_centro->AsignarVehiculo(receptor, organo, donante, this);
 	}
 	catch (exception e) {
 		cout << string(e.what())<<endl;
@@ -223,6 +223,11 @@ string cINCUCAI::to_String()
 	ss << *Lista_receptores;
 
 	return ss.str();
+}
+
+void cINCUCAI::TransplanteHecho(cReceptor* receptor, cINCUCAI* incu)
+{
+	incu->Lista_receptores->Eliminar(receptor);  //eliminamos al receptor de la lista si el transplante se realiza, sea exitoso o no
 }
 
 ostream& operator<<(ostream& out, cINCUCAI& incu)

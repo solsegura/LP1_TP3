@@ -243,4 +243,114 @@ int main()
 	system("cls");
 
 
+
+	delete Nacimiento1;
+	delete Nacimiento2;
+	delete Nacimiento3;
+	delete Nacimiento4;
+	delete Nacimiento5;
+	delete	Nacimiento6;
+	delete Nacimiento7;
+
+
+	delete Fallecimiento1;
+	delete Fallecimiento2;
+	delete Fallecimiento3;
+	delete Fallecimiento4;
+	delete Fallecimiento5;
+	delete Fallecimiento6;
+	delete Fallecimiento7;
+
+	
+	delete corazao1;
+	delete higaduli1;
+	delete PANcreas1;
+	delete Huesos1;
+	delete rinionn1;
+	delete pulmonn1;
+	delete Intestino1;
+	delete Piel1;
+	delete Corneas1;
+	
+	delete corazao2;
+	delete higaduli2;
+	delete PANcreas2;
+	delete Huesos2;
+	delete rinionn2;
+	delete pulmonn2;
+	delete Intestino2;
+	delete Piel2;
+	delete Corneas2;
+
+	delete corazao3;
+	delete higaduli3;
+	delete PANcreas3;
+	delete Huesos3;
+	delete rinionn3;
+	delete pulmonn3;
+	delete Intestino3;
+	delete Piel3;
+	delete Corneas3;
+
+
+	
+	delete avion1;
+	delete avion2;
+	delete avion3;
+	delete avion4;
+	
+	
+	delete helicoptero1;
+	delete helicoptero2;
+	delete helicoptero3;
+	delete helicoptero4;
+	
+	
+	delete ambulancia1;
+	delete ambulancia2;
+	delete ambulancia3;
+	delete ambulancia4;
+	
+	
+	
+	delete listaVehiculos1;
+	delete listaVehiculos2;
+	delete listaVehiculos3;
+	delete listaVehiculos4;
+
+
+	//centros 
+	delete centro1 ;
+	delete centro2 ;
+	delete centro3 ;
+	delete centro4 ;
+	
+	
+	  			   
+	delete donante1;
+	delete donante2;
+	delete donante3;
+	delete donante4;
+	delete donante5;
+	delete donante6;
+	delete donante7;
+	 
+	
+	delete  receptor1;
+	delete  receptor2;
+	delete  receptor3;
+	delete  receptor4;
+	delete  receptor5;
+	delete  receptor6;
+	delete  receptor7;
+
+	delete incucai;
+
+	
+	delete listapacientes1;
+	delete listapacientes2;
+	delete listapacientes3;
+	delete listapacientes4;
+
+
 }

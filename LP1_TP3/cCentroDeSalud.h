@@ -12,6 +12,7 @@ class cVehiculo;
 class cPaciente;
 class cReceptor;
 class cDonante;
+class cINCUCAI;
 typedef cLista<cVehiculo> cListaVehiculo;
 typedef cLista<cPaciente> cListaPacientes;
 
@@ -31,7 +32,7 @@ public:
 	cCentroDeSalud(string nombre, string direccion, string partido, string telefono, provincia provincia, cListaVehiculo* vehiculos);
 	~cCentroDeSalud();
 	void AgregarPaciente(cPaciente* paciente_nuevo);
-	void AsignarVehiculo(cReceptor* receptor, cOrgano* organo, cDonante* donante);
+	void AsignarVehiculo(cReceptor* receptor, cOrgano* organo, cDonante* donante, cINCUCAI* incu);
 	void RealizarAblacion(cDonante* donante, cOrgano* organo);
 	void RealizarTransplante(cOrgano* organo);
 

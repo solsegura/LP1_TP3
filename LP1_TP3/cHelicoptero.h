@@ -3,6 +3,8 @@
 #include "cOrgano.h"
 #include "cReceptor.h"
 
+class cINCUCAI;
+
 class cHelicoptero :
     public cVehiculo
 {
@@ -10,6 +12,6 @@ class cHelicoptero :
 public:
     cHelicoptero(string id, string nombre);
     ~cHelicoptero();
-    void RealizarTransporte(cReceptor* receptor, cOrgano* organo);
+    void RealizarTransporte(cReceptor* receptor, cOrgano* organo, cINCUCAI* incu);
 };
 
