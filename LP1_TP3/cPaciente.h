@@ -31,7 +31,7 @@ public:
 	cCentroDeSalud* getCentro();
 	sangre getSangre();
 	string getNombre();
-	string To_string();
+	//string To_string();
 	
 };
 

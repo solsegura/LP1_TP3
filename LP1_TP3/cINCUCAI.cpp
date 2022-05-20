@@ -178,7 +178,9 @@ cListaReceptores* cINCUCAI::FiltroReceptoresPorOrgano(cOrgano* organo)
 			aux->Agregar((*(this->Lista_receptores))[i]);
 	}
 	if (aux->getCant() == 0)
-		throw new exception("No hay pacientes que necesiten este organo");
+		cout<<("No hay pacientes que necesiten este organo")<< endl;
+
+
 	return aux;
 }
 

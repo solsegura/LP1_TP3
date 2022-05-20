@@ -262,6 +262,51 @@ int main()
 	delete Fallecimiento7;
 
 	
+
+	delete centro1 ;
+	delete centro2 ;
+	delete centro3 ;
+	delete centro4 ;
+	
+	//delete listaVehiculos1;   //entendemos que salta un error aca porque queda basura en lista vehiculos. no entendemos por que pasa eso si lista pacientes sigue bien (ya que ambas pasan por el destructor de Centro
+	//delete listaVehiculos2;
+	//delete listaVehiculos3;
+	//delete listaVehiculos4;
+
+	delete avion1;
+	delete avion2;
+	delete avion3;
+	delete avion4;
+	
+	
+	delete helicoptero1;
+	delete helicoptero2;
+	delete helicoptero3;
+	delete helicoptero4;
+	
+	
+	delete ambulancia1;
+	delete ambulancia2;
+	delete ambulancia3;
+	delete ambulancia4;
+
+	  			   
+	delete donante1;  //aca pasa lo  mismo con los organos o fecha
+	delete donante2;
+	delete donante3;
+	delete donante4;
+	delete donante5;
+	delete donante6;
+	delete donante7;
+	 
+	
+	delete  receptor1;
+	delete  receptor2;
+	delete  receptor3;
+	delete  receptor4;
+	delete  receptor5;
+	delete  receptor6;
+	delete  receptor7;
 	delete corazao1;
 	delete higaduli1;
 	delete PANcreas1;
@@ -291,58 +336,6 @@ int main()
 	delete Intestino3;
 	delete Piel3;
 	delete Corneas3;
-
-
-	
-	delete avion1;
-	delete avion2;
-	delete avion3;
-	delete avion4;
-	
-	
-	delete helicoptero1;
-	delete helicoptero2;
-	delete helicoptero3;
-	delete helicoptero4;
-	
-	
-	delete ambulancia1;
-	delete ambulancia2;
-	delete ambulancia3;
-	delete ambulancia4;
-	
-	
-	
-	delete listaVehiculos1;
-	delete listaVehiculos2;
-	delete listaVehiculos3;
-	delete listaVehiculos4;
-
-
-	//centros 
-	delete centro1 ;
-	delete centro2 ;
-	delete centro3 ;
-	delete centro4 ;
-	
-	
-	  			   
-	delete donante1;
-	delete donante2;
-	delete donante3;
-	delete donante4;
-	delete donante5;
-	delete donante6;
-	delete donante7;
-	 
-	
-	delete  receptor1;
-	delete  receptor2;
-	delete  receptor3;
-	delete  receptor4;
-	delete  receptor5;
-	delete  receptor6;
-	delete  receptor7;
 
 	delete incucai;
 
