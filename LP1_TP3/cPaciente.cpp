@@ -13,7 +13,7 @@ cPaciente::cPaciente()
 
 }
 
-cPaciente::cPaciente(string dni, string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, int dia_nacimiento, int mes_nac, int anio_nac)
+cPaciente::cPaciente(string dni, string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro,cFecha* nacimiento)
 {
 	this->DNI = dni;
 	this->Nombre = nombre;
@@ -21,7 +21,7 @@ cPaciente::cPaciente(string dni, string nombre, bool sexo, string telefono, sang
 	this->Telefono = telefono;
 	this->GrupoSanguineo = gruposanguineo;
 	this->Centro = centro;
-	this->Fecha = new cFecha(dia_nacimiento, mes_nac, anio_nac);
+	this->Fecha = nacimiento;
 }
 
 

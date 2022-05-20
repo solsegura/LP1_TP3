@@ -1,4 +1,5 @@
 #include "cVehiculo.h"
+#include "cOrgano.h"
 
 cVehiculo::cVehiculo(string vehiculo)
 {

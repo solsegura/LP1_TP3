@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+class cOrgano;
 class cReceptor;
 
 class cVehiculo
@@ -11,6 +12,6 @@ class cVehiculo
 public:
 	cVehiculo(string vehiculo);
 	virtual ~cVehiculo();
-	virtual void RealizarTransporte(cReceptor* receptor)=0;
+	virtual void RealizarTransporte(cReceptor* receptor, cOrgano* organo) =0;
 };
 

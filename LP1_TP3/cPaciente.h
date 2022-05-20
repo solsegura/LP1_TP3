@@ -25,12 +25,13 @@ class cPaciente
 
 public:
 	cPaciente(); //por defecto
-	cPaciente(string dni, string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, int dia_nacimiento, int mes_nac, int anio_nac);
+	cPaciente(string dni, string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, cFecha* nacimiento);
 	virtual ~cPaciente();
 	virtual void AgregarOrgano(cOrgano* organo) = 0;
 	cCentroDeSalud* getCentro();
 	sangre getSangre();
 	string getNombre();
+	string To_string();
 	
 };
 

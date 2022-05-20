@@ -38,6 +38,13 @@ public:
 	void IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano* organo);
 	//sint CantDonaciones();
 
+	//void SetDonantes(cListaDonantes* donantes);
+	//void setReceptores(cListaReceptores* receptores);
+
+	int getCantReceptores();
+	int getCantDonantes();
+
+
 	cListaReceptores* FiltroReceptoresPorOrgano(cOrgano* organo);
 	cListaReceptores* FiltroPorCentro(cCentroDeSalud* centro);
 	void InformarPrioridad(cReceptor* receptor);

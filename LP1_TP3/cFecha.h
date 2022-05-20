@@ -12,7 +12,7 @@ class cFecha
 
 public:
 	//Constructor por default, inicia en la fecha de hoy
-	cFecha();
+	cFecha(bool next_mes = false);
 
 	//Constructor inicia en dia, mes, año
 	cFecha(int d, int m, int a);
@@ -28,7 +28,7 @@ public:
 
 	//Cambia la fecha a la fecha actual
 	void SetHoy();
-
+	void setMesRand();
 	//Verifica que la fecha esté completa
 	bool FechaCompleta();
 

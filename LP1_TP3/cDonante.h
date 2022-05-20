@@ -10,16 +10,15 @@ class cDonante :
 {
     friend class cINCUCAI;
     friend class cCentroDeSalud;
-    tm Fallecimiento;
-    tm Ablacion;
+    cFecha* Fallecimiento;
     cListaOrganos* lista_organos;  //hacerla en el constructor
 
 public:
     //cDonante(); //defecto
-    cDonante(tm fallecimiento, tm ablacion, string dni, string nombre, string fecha, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, int dia_nacimiento, int mes_nac, int anio_nac);
+    cDonante(cFecha* fallecimiento, string dni, string nombre, bool sexo, string telefono, sangre gruposanguineo, cCentroDeSalud* centro, cFecha* nacimiento);
     ~cDonante();
     void AgregarOrgano(cOrgano* organo);
-
+    string To_string();
     bool operator== (cReceptor& receptor);
 };
 

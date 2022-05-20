@@ -2,6 +2,7 @@
 #include "cDonante.h"
 #include "cReceptor.h"
 #include "cOrgano.h"
+#include "cFecha.h"
 #include "cCentroDeSalud.h"
 #define MAXDONANTES 40
 #define MAXRECEPTORES 40
@@ -50,7 +51,7 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 		//es donante
 		this->Lista_donantes->Agregar(donante_aux);
 		//Luego busca los posibles receptores y devuelve una lista de posibles receptores segun los organos del donante
-		cListaReceptores* sublista = this->BuscarReceptores(donante_aux);  //devielve ista de los que necesitan el organo
+		cListaReceptores* sublista = BuscarReceptores(donante_aux);  //devielve ista de los que necesitan el organo
 		for (int i = 0; i < donante_aux->lista_organos->getCant(); i++) {
 			cReceptor* aux_Receptor = this->ElegirReceptor(sublista, (*(donante_aux->lista_organos))[i]);  //para cada organo que puede donar, busca un receptor
 			if (aux_Receptor != NULL) {
@@ -65,10 +66,13 @@ void cINCUCAI::IngresarPaciente(cPaciente* paciente_nuevo)
 	}
 	else if (receptor_aux != NULL) {
 		this->Lista_receptores->Agregar(receptor_aux);  //es un receptor, lo agrego a la lista de receptores
-		cListaDonantes* aux_donantes = this->BuscarDonantes(receptor_aux); //devuelve una lista con los donantes que pueden donar el organo que necesita este receptor
+		cFecha* fecha = new cFecha();
+		receptor_aux->setFechaEspera(fecha);
+		cListaDonantes* aux_donantes = BuscarDonantes(receptor_aux); //devuelve una lista con los donantes que pueden donar el organo que necesita este receptor
 
 		for (int i = 0; i < aux_donantes->getCant(); i++) {
-			cListaReceptores* sublista = this->BuscarReceptores(donante_aux);  // por cada donante veo si hay match
+			donante_aux = (*aux_donantes)[i];
+			cListaReceptores* sublista = BuscarReceptores(donante_aux);  // por cada donante veo si hay match
 			cReceptor* aux = this->ElegirReceptor(sublista, receptor_aux->Organo_que_necesita);  //si para el organo que necesita, hay match, aux va a ser el receptor que ingreso
 			if (aux == receptor_aux) {
 				//el receptor encontro donante :)
@@ -142,14 +146,35 @@ cReceptor* cINCUCAI::ElegirReceptor(cListaReceptores* sublista, cOrgano* organo_
 void cINCUCAI::IniciarProtocolo(cReceptor* receptor, cDonante* donante, cOrgano* organo)
 {
 	cCentroDeSalud* aux_centro = donante->getCentro();
-	aux_centro->AsignarVehiculo(receptor, organo, donante);
+	try {
+		aux_centro->AsignarVehiculo(receptor, organo, donante);
+	}
+	catch (exception e) {
+		cout << string(e.what())<<endl;
+	}
+	
+}
+
+//void cINCUCAI::SetDonantes(cListaDonantes* donantes)
+//{
+//	this->Lista_donantes = donantes;
+//}
+
+int cINCUCAI::getCantReceptores()
+{
+	return this->Lista_receptores->getCant();
+}
+
+int cINCUCAI::getCantDonantes()
+{
+	return this->Lista_donantes->getCant();
 }
 
 cListaReceptores* cINCUCAI::FiltroReceptoresPorOrgano(cOrgano* organo)
 {
 	cListaReceptores* aux= new cListaReceptores(MAXRECEPTORES);
 	for (int i = 0; i < this->Lista_receptores->getCant(); i++) {
-		if (organo = (*(this->Lista_receptores))[i]->Organo_que_necesita)
+		if (organo->getNombreOrgano() == (*(this->Lista_receptores))[i]->Organo_que_necesita->getNombreOrgano()) //si los organos son iguales
 			aux->Agregar((*(this->Lista_receptores))[i]);
 	}
 	if (aux->getCant() == 0)
@@ -188,23 +213,14 @@ void cINCUCAI::InformarPrioridad(cReceptor* receptor)
 string cINCUCAI::to_String()
 {
 	stringstream ss;
+	system("pause");
+	system("cls");
 	ss << "-----INCUCAI--------" << endl << endl;
-	ss << "_____DONANTES______" << endl;
-	for (int i = 0; i < this->Lista_donantes->getCant(); i++) {
-		ss << "Nombre: " << (*(this->Lista_donantes))[i]->getNombre() << endl;
-		ss << "Dona: ";
-		for (int k = 0; k < (*(this->Lista_donantes))[i]->lista_organos->getCant(); k++) {
-			ss << (*((*(this->Lista_donantes))[i]->lista_organos))[k]->getNombreOrgano() << ", ";
-		}
-		ss << endl;
-	}
+	ss << "_____DONANTES______" << endl<<endl;
+	ss << *Lista_donantes;
 	ss << endl;
-	ss << "_____RECEPTORES_____" << endl;
-	for (int i = 0; i < this->Lista_receptores->getCant(); i++) {
-			ss << "Nombre: " << (*(this->Lista_receptores))[i]->getNombre() << endl;
-			ss << "Recibe: " << (*(this->Lista_receptores))[i]->Organo_que_necesita->getNombreOrgano();
-			ss << endl;
-	}
+	ss << "_____RECEPTORES_____" << endl<<endl;
+	ss << *Lista_receptores;
 
 	return ss.str();
 }

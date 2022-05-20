@@ -4,14 +4,19 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 
-cFecha::cFecha() {
+cFecha::cFecha(bool next_mes) {
 	fecha.tm_hour = 0;
 	fecha.tm_min = 0;
 	fecha.tm_sec = 0;
 	fecha.tm_mday = 0;
 	fecha.tm_mon = 0;
 	fecha.tm_year = 0;
+	if (next_mes) {
+
+	}
+		//setr rand
 	SetHoy();
+
 	fecha.tm_wday = 0;
 	fecha.tm_yday = 0;
 	fecha.tm_isdst = 0;
@@ -24,7 +29,7 @@ cFecha::cFecha(int d, int m, int a)
 	fecha.tm_sec = 0;
 	fecha.tm_mday = d;
 	fecha.tm_mon = m ;
-	fecha.tm_year = a ;
+	fecha.tm_year = a -1900;
 	fecha.tm_wday = 0;
 	fecha.tm_yday = 0;
 	fecha.tm_isdst = 0;
@@ -37,7 +42,7 @@ cFecha::cFecha(int d, int m, int a, int hs, int min) {
 	fecha.tm_sec = 0;
 	fecha.tm_mday = d;
 	fecha.tm_mon = m;
-	fecha.tm_year = a;
+	fecha.tm_year = a-1900;
 	fecha.tm_wday = 0;
 	fecha.tm_yday = 0;
 	fecha.tm_isdst = 0;
@@ -51,7 +56,7 @@ int cFecha::HorasEntreFechas(cFecha* inicio, cFecha* fin)
 	int dif = 0;
 	time_t aux_inicio = mktime(&(inicio->fecha)); //paso las fechas a segundos
 	time_t aux_fin = mktime(&(fin->fecha));
-
+	//if -1 falla la conversion
 	//verifico que las fechas que recibo no sean null ni estén incompletas
 	if ((inicio != NULL && fin != NULL) && inicio->FechaCompleta() && fin->FechaCompleta())
 	{
@@ -60,7 +65,7 @@ int cFecha::HorasEntreFechas(cFecha* inicio, cFecha* fin)
 			throw exception("Las fechas no son válidas");
 		else
 		{
-			dif = difftime(aux_fin, aux_inicio) / (60*60); //calculo la diferencia de tiempo en segundos, transforma a horas, y la devuelvo
+			dif = difftime(aux_fin, aux_inicio) / (3600); //calculo la diferencia de tiempo en segundos, transforma a horas, y la devuelvo
 			return dif;
 		}
 	}
@@ -77,6 +82,21 @@ void cFecha::SetHoy()
 	fecha.tm_mday = aux->tm_mday;
 	fecha.tm_mon = aux->tm_mon;
 	fecha.tm_year = aux->tm_year;
+}
+
+void cFecha::setMesRand()
+{
+
+	time_t now = time(0);
+	tm* aux = localtime(&now); //obtengo fecha y hora actual
+	fecha.tm_sec = aux->tm_sec;
+	fecha.tm_min = aux->tm_min;
+	fecha.tm_hour = aux->tm_hour;
+	fecha.tm_mday = aux->tm_mday;
+	fecha.tm_mon = aux->tm_mon;
+	fecha.tm_year = aux->tm_year;
+
+	fecha.tm_mon++; //sumamos uno al mes para la consign QUE AL FINAL ERA OPCIONAL
 }
 
 bool cFecha::FechaCompleta()

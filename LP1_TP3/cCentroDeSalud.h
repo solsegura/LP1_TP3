@@ -28,8 +28,9 @@ class cCentroDeSalud
 	cListaVehiculo* Lista_vehiculos;  // template ndea
 	cListaPacientes* Lista_pacientes;  //idem, ver como es lo de template
 public:
-	cCentroDeSalud(string nombre, string direccion, string partido, string telefono, provincia provincia, cListaVehiculo* vehiculos, cListaPacientes* pacientes);
+	cCentroDeSalud(string nombre, string direccion, string partido, string telefono, provincia provincia, cListaVehiculo* vehiculos);
 	~cCentroDeSalud();
+	void AgregarPaciente(cPaciente* paciente_nuevo);
 	void AsignarVehiculo(cReceptor* receptor, cOrgano* organo, cDonante* donante);
 	void RealizarAblacion(cDonante* donante, cOrgano* organo);
 	void RealizarTransplante(cOrgano* organo);

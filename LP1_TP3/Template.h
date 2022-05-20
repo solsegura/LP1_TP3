@@ -21,6 +21,7 @@ public:
 	void operator+(T* nuevo_item);
 	void operator-(T* item);
 	T* operator[](int indice);
+	friend ostream& operator<< <>(ostream&, const cLista<T>&);
 	
 };
 
@@ -65,7 +66,13 @@ inline void cLista<T>::Agregar(T* nuevo_item)
 template<class T>
 inline void cLista<T>::Eliminar(T* item)
 {
-	int idx = this->Buscar(item);
+	int idx;
+	try {
+		 idx = this->Buscar(item);
+	}
+	catch (exception e) {
+		cout<< string(e.what()) << endl;
+	}
 	this->Vector[idx] = this->Vector[--Cant_act];  //decremento uno a cant actual y muevo el ultimo elemento de la lista al lugar del que quiero borrar
 	this->Vector[Cant_act] = NULL; //borro el ultimo elemento de la lista (ya lo puse en otra posicion)
 }
@@ -73,7 +80,13 @@ inline void cLista<T>::Eliminar(T* item)
 template<class T>
 inline T* cLista<T>::Quitar(T* item)
 {
-	int idx = this->Buscar(item);
+	int idx;
+	try {
+		 idx = this->Buscar(item);
+	}
+	catch (exception e) {
+		cout << string(e.what()) << endl;
+	}
 	return this->Vector[idx];
 }
 
@@ -84,8 +97,8 @@ inline int cLista<T>::Buscar(T* item)
 		if (this->Vector[i] == item)
 			return i;
 	}
-	throw new exception("NO_SE_ENCUENTRA_EN_LA_LISTA");   //lanzamos una excepcion si no encuentra
-	return -1;  
+	//throw new exception("NO_SE_ENCUENTRA_EN_LA_LISTA");   //lanzamos una excepcion si no encuentra
+	return -1;  //si  no encuntra, retorna -1
 }
 
 template<class T>
@@ -110,4 +123,15 @@ template<class T>
 inline T* cLista<T>::operator[](int indice)
 {
 	return this->Vector[indice];
+}
+
+template <class T>
+ostream& operator<< <>(ostream& out, const cLista<T>& List) {
+
+	for (int i = 0; i < List.Cant_act; i++)
+	{
+		out << List.Vector[i]->To_string() << endl;
+	}
+
+	return out;
 }

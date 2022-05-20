@@ -14,13 +14,13 @@ cHelicoptero::~cHelicoptero()
 
 void cHelicoptero::RealizarTransporte(cReceptor* receptor, cOrgano* organo)
 {
-	cout << "taca-taca-taca" << endl << "El helicóptero llegó a destino" << endl;
+	cout << "taca-taca-taca" << endl << "El helicoptero llego a destino" << endl<<endl;
 	try {
 		receptor->getCentro()->RealizarTransplante(organo);
 	}
 	catch (exception* e) {
 		receptor->setPrioridad(muy_grave); //cambiamos la prioridad porque el transplante no fue 
 		receptor->setEstado(inestable); //cambiamos el estado
-		cout<<string(e->what())<<endl;
+		cout<<string(e->what())<<endl<<endl;
 	}
 }
