@@ -19,6 +19,8 @@ typedef cLista<cPaciente> cListaPacientes;
 string lista_organos[9] = {"Corazon", "Higado", "Pancreas", "Huesos", "Rinion", "Pulmones", "Intestino", "Piel", "Corneas"};
 int main()
 {
+	srand(time(NULL));
+
 	cout << "          --------------BIENVENIDO---------------" << endl<<endl<<endl;
 	printf("                     |  \\ \\ | |/ /\n");
 	printf("                     |  |\\ `' ' /             \n");

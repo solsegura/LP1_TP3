@@ -51,23 +51,19 @@ cFecha::cFecha(int d, int m, int a, int hs, int min) {
 cFecha::~cFecha() {
 }
 
-int cFecha::HorasEntreFechas(cFecha* inicio, cFecha* fin)
+int cFecha::HorasEntreFechas(cFecha* inicio, time_t aux_fin)
 {
 	int dif = 0;
 	time_t aux_inicio = mktime(&(inicio->fecha)); //paso las fechas a segundos
-	time_t aux_fin = mktime(&(fin->fecha));
+	//time_t aux_fin = mktime(&(fin->fecha));
 	//if -1 falla la conversion
 	//verifico que las fechas que recibo no sean null ni estén incompletas
-	if ((inicio != NULL && fin != NULL) && inicio->FechaCompleta() && fin->FechaCompleta())
+	if ((inicio != NULL ) && inicio->FechaCompleta())
 	{
-		//verifico que fecha fin > fecha inicio con operador sobrecargado
-		if (*inicio > *fin)
-			throw exception("Las fechas no son válidas");
-		else
-		{
+	
 			dif = difftime(aux_fin, aux_inicio) / (3600); //calculo la diferencia de tiempo en segundos, transforma a horas, y la devuelvo
 			return dif;
-		}
+		
 	}
 	else throw exception("Fechas incompletas");
 }

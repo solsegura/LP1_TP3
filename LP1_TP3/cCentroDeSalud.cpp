@@ -94,9 +94,12 @@ void cCentroDeSalud::RealizarTransplante(cOrgano* organo)
 
 	cFecha* fecha_transplante = new cFecha();
 	fecha_transplante = organo->getFechaAblacion();
-	tm aux = fecha_transplante->getFecha();
-	aux.tm_hour = rand() % 23; //sumamos un numero de horas entre 1 y 24 a la fecha de ablacion para definir la fecha de transplante
-	int CantHoras = cFecha::HorasEntreFechas(organo->getFechaAblacion(), fecha_transplante);
+	tm otroaux = fecha_transplante->getFecha();
+	time_t aux = mktime(&otroaux);
+
+	aux += rand() % 26*60*60; //sumamos un numero de horas entre 1 y 24 a la fecha de ablacion para definir la fecha de transplante
+
+	int CantHoras = cFecha::HorasEntreFechas(organo->getFechaAblacion(), aux);
 
 	if (CantHoras < 20) {
 		cout << "Se pudo realizar el transplante porque el organo llego a destino en menos de 20 hs" << endl;

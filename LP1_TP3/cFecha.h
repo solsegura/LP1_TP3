@@ -23,7 +23,7 @@ public:
 
 
 	//Calcula el numero de horas entre dos fechas
-	static int HorasEntreFechas(cFecha* inicio, cFecha* fin);
+	static int HorasEntreFechas(cFecha* inicio,time_t aux_fin);
 
 
 	//Cambia la fecha a la fecha actual
