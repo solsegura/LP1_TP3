@@ -296,7 +296,7 @@ cout<<"         				                                  "<<endl;
 	delete centro3;
 	delete centro4;
 
-	delete listaVehiculos1;   //entendemos que salta un error aca porque queda basura en lista vehiculos. no entendemos por que pasa eso si lista pacientes sigue bien (ya que ambas pasan por el destructor de Centro
+	delete listaVehiculos1;   
 	delete listaVehiculos2;
 	delete listaVehiculos3;
 	delete listaVehiculos4;
