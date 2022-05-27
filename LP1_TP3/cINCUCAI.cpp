@@ -98,7 +98,7 @@ cReceptor* cINCUCAI::ElegirReceptor(cListaReceptores* sublista, cOrgano* organo_
 	//deberia recorrer los receptores y de los que tengan el mismo organo fijarme cual es el que tiene mayor prioridad
 	for (int i = 0; i < sublista->getCant(); i++)
 	{
-		if ((*sublista)[i]->Organo_que_necesita == organo_a_donar) //ver cual es el que tiene mas priodridad 
+		if ((*sublista)[i]->Organo_que_necesita->getNombreOrgano() == organo_a_donar->getNombreOrgano()) //ver cual es el que tiene mas priodridad 
 		{
 			if ((*sublista)[i]->Prioridad == 3) //como la lista esta ordenada va a ser por oden de llegada y siempre va a agarrar al primero
 			{

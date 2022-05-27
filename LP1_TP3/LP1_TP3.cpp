@@ -206,7 +206,7 @@ int main()
 	cListaPacientes* listapacientes3 = new cListaPacientes(MAXPACIENTES);
 	cListaPacientes* listapacientes4 = new cListaPacientes(MAXPACIENTES);
 
-	for (int i = 0; i < incucai->getCantReceptores(); i++) {
+	for (int i = 0; i < TodosLosReceptores->getCant(); i++) {
 		if ((*(TodosLosReceptores))[i]->getCentro() == centro1) {
 			centro1->AgregarPaciente((*(TodosLosReceptores))[i]);
 		}
@@ -222,13 +222,14 @@ int main()
 	}
 
    
-   
-   for (int i = 0; i < TodosLosDonantes->getCant(); i++) {
-	   incucai->IngresarPaciente((*(TodosLosDonantes))[i]);
-   }
-   for (int i = 0; i < TodosLosReceptores->getCant(); i++) {
+	for (int i = 0; i < TodosLosReceptores->getCant(); i++) {
 	   incucai->IngresarPaciente((*(TodosLosReceptores))[i]);
-   }
+    }
+
+	   for (int i = 0; i < TodosLosDonantes->getCant(); i++) {
+		   incucai->IngresarPaciente((*(TodosLosDonantes))[i]);
+	   }
+
 
 
 	try {
